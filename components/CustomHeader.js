@@ -39,10 +39,10 @@ export default function CustomHeader() {
             />
             <View>
               <Text>Deliver now!</Text>
-              <Location>
-                Current Location
+              <LocationContainer>
+                <Location>Current Location</Location>
                 <ChevronDownIcon size={20} color="#00CCBB" />
-              </Location>
+              </LocationContainer>
             </View>
           </ProfileContainer>
           <UserIcon size={35} color="#00CCBB" />
@@ -75,8 +75,8 @@ const Header = styled.View`
 `;
 
 const Image = styled.Image`
-  width: 44;
-  height: 44;
+  width: 44px;
+  height: 44px;
   border-radius: 22px;
   margin-right: 10px;
 `;
@@ -90,10 +90,19 @@ const Text = styled.Text`
   color: #c0bdbe;
   font-size: 14px;
 `;
+
+const LocationContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
 const Location = styled.Text`
   font-weight: 700;
   color: #000;
   font-size: 22px;
+  margin-right: 7px;
+  margin-top: -4px;
+  justify-content: flex-end;
 `;
 
 const InputContainer = styled.View`
@@ -101,7 +110,10 @@ const InputContainer = styled.View`
   background: #f0edee;
   padding: 10px;
   flex: 1;
+  margin-top: 4px;
+  margin-right: 7px;
   align-items: center;
+  border-radius: 4px;
 `;
 
 const SearchBarContainer = styled.View`
