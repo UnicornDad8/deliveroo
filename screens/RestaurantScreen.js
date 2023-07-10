@@ -9,6 +9,7 @@ import {
 } from "react-native-heroicons/solid";
 import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import DishRow from "../components/DishRow";
+import BasketIcon from "../components/BasketIcon";
 import { urlFor } from "../sanity";
 import styled from "styled-components/native";
 
@@ -37,60 +38,63 @@ const RestaurantScreen = () => {
   }, []);
 
   return (
-    <RestaurantScreenContainer>
-      <View>
-        <StatusBar hidden />
-        <ImageContainer>
-          <Image source={{ uri: urlFor(imgUrl).url() }} />
-        </ImageContainer>
-        <BackButton onPress={navigation.goBack}>
-          <ArrowLeftIcon size={20} color="#00CCBB" />
-        </BackButton>
-      </View>
-      <RestaurantTextWrapper>
-        <TitleContainer>
-          <Title>{title}</Title>
-        </TitleContainer>
-        <RatingWrapper>
-          <RatingRow>
-            <StarIcon size={22} color="#57c955" opacity={0.5} />
-            <Rating>{rating}</Rating>
-            <Genre>{genre}</Genre>
-          </RatingRow>
-          <LocationContainer>
-            <MapPinIcon size={22} color="gray" opacity={0.4} />
-            <Location>Nearby, {address}</Location>
-          </LocationContainer>
-        </RatingWrapper>
+    <>
+      <RestaurantScreenContainer>
+        <View>
+          <StatusBar hidden />
+          <ImageContainer>
+            <Image source={{ uri: urlFor(imgUrl).url() }} />
+          </ImageContainer>
+          <BackButton onPress={navigation.goBack}>
+            <ArrowLeftIcon size={20} color="#00CCBB" />
+          </BackButton>
+        </View>
+        <RestaurantTextWrapper>
+          <TitleContainer>
+            <Title>{title}</Title>
+          </TitleContainer>
+          <RatingWrapper>
+            <RatingRow>
+              <StarIcon size={22} color="#57c955" opacity={0.5} />
+              <Rating>{rating}</Rating>
+              <Genre>{genre}</Genre>
+            </RatingRow>
+            <LocationContainer>
+              <MapPinIcon size={22} color="gray" opacity={0.4} />
+              <Location>Nearby, {address}</Location>
+            </LocationContainer>
+          </RatingWrapper>
 
-        <Description>{short_description}</Description>
-        <DescriptionButton
-          style={{
-            borderBottomColor: "#dcdad7",
-            borderBottomWidth: 1,
-            borderTopColor: "#dcdad7",
-            borderTopWidth: 1,
-          }}
-        >
-          <QuestionMarkCircleIcon color="gray" opacity={0.6} size={22} />
-          <DescriptionButtonText>Have a food allergy?</DescriptionButtonText>
-          <ChevronRightIcon size={22} color="#00CCBB" />
-        </DescriptionButton>
-      </RestaurantTextWrapper>
-      <View>
-        <MenuTitle>Menu</MenuTitle>
-        {dishes.map((dish) => (
-          <DishRow
-            key={dish._id}
-            id={dish._id}
-            name={dish.name}
-            description={dish.short_description}
-            price={dish.price}
-            image={dish.image}
-          />
-        ))}
-      </View>
-    </RestaurantScreenContainer>
+          <Description>{short_description}</Description>
+          <DescriptionButton
+            style={{
+              borderBottomColor: "#dcdad7",
+              borderBottomWidth: 1,
+              borderTopColor: "#dcdad7",
+              borderTopWidth: 1,
+            }}
+          >
+            <QuestionMarkCircleIcon color="gray" opacity={0.6} size={22} />
+            <DescriptionButtonText>Have a food allergy?</DescriptionButtonText>
+            <ChevronRightIcon size={22} color="#00CCBB" />
+          </DescriptionButton>
+        </RestaurantTextWrapper>
+        <MenuContainer>
+          <MenuTitle>Menu</MenuTitle>
+          {dishes.map((dish) => (
+            <DishRow
+              key={dish._id}
+              id={dish._id}
+              name={dish.name}
+              description={dish.short_description}
+              price={dish.price}
+              image={dish.image}
+            />
+          ))}
+        </MenuContainer>
+      </RestaurantScreenContainer>
+      <BasketIcon />
+    </>
   );
 };
 
@@ -196,6 +200,10 @@ const DescriptionButtonText = styled.Text`
   flex: 1;
   margin-left: 10px;
   margin-top: -10px;
+`;
+
+const MenuContainer = styled.View`
+  padding-bottom: 80px;
 `;
 
 const MenuTitle = styled.Text`
