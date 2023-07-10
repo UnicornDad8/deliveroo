@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
-import { View, Text } from "react-native";
 import { selectBasketItems, selectBasketTotal } from "../features/basketSlice";
 import Currency from "react-currency-formatter";
 import styled from "styled-components/native";
@@ -9,12 +8,13 @@ import styled from "styled-components/native";
 const BasketIcon = () => {
   const items = useSelector(selectBasketItems);
   const navigation = useNavigation();
-
   const basketTotal = useSelector(selectBasketTotal);
+
+  if (items.length === 0) return null;
 
   return (
     <BasketTotalContainer>
-      <BasketButton>
+      <BasketButton onPress={() => navigation.navigate("Basket")}>
         <TotalItemsContainer>
           <TotalItems>{items.length}</TotalItems>
         </TotalItemsContainer>

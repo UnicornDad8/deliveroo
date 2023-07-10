@@ -1,5 +1,6 @@
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
+import BasketScreen from "./screens/BasketScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { setupURLPolyfill } from "react-native-url-polyfill";
@@ -16,6 +17,11 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+          <Stack.Screen
+            name="Basket"
+            component={BasketScreen}
+            options={{ presentation: "modal", headerShown: false }}
+          />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>

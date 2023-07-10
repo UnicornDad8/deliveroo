@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RestaurantCard from "./RestaurantCard";
 import styled from "styled-components/native";

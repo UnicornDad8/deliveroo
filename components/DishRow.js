@@ -58,13 +58,7 @@ function DishRow({ id, name, description, price, image }) {
             </CurrencyContainer>
           </DescriptionWrapper>
           <ImageContainer>
-            <Image
-              style={{
-                borderWidth: 1,
-                borderColor: "#F3F3F4",
-              }}
-              source={{ uri: urlFor(image).width(100).url() }}
-            />
+            <Image source={{ uri: urlFor(image).width(100).url() }} />
           </ImageContainer>
         </DishTop>
       </DishContainer>
@@ -137,6 +131,8 @@ const Image = styled.Image`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-width: 1px;
+  border-color: #f3f3f4;
 `;
 
 const DishBottom = styled.View`
