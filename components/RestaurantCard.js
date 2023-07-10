@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { StarIcon, MapPinIcon } from "react-native-heroicons/solid";
+import { urlFor } from "../sanity";
 import styled from "styled-components/native";
 
 export default function RestaurantCard({
@@ -18,7 +19,7 @@ export default function RestaurantCard({
   return (
     <RestaurantCardContainer>
       <ImageContainer>
-        <Image source={{ uri: imgUrl }} />
+        <Image source={{ uri: urlFor(imgUrl).width(300).url() }} />
       </ImageContainer>
       <Wrapper>
         <Title>{title}</Title>
