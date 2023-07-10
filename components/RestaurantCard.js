@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { StarIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../sanity";
 import styled from "styled-components/native";
@@ -16,8 +17,25 @@ export default function RestaurantCard({
   long,
   lat,
 }) {
+  const navigation = useNavigation();
+
   return (
-    <RestaurantCardContainer>
+    <RestaurantCardContainer
+      onPress={() => {
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat,
+        });
+      }}
+    >
       <ImageContainer>
         <Image source={{ uri: urlFor(imgUrl).width(300).url() }} />
       </ImageContainer>
