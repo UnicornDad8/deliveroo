@@ -127,6 +127,8 @@ const ImageContainer = styled.View`
   height: 100px;
   background: #f3f3f4;
   margin-left: 10px;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 const Image = styled.Image`

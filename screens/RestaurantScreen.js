@@ -122,6 +122,8 @@ export default RestaurantScreen;
 const RestaurantScreenContainer = styled.ScrollView`
   background: #f1f1f1;
   position: relative;
+  padding-bottom: 80px;
+  margin-bottom: 30px;
 `;
 
 const ImageContainer = styled.View`

@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
+import MapView, { Marker } from "react-native-maps";
 import styled from "styled-components/native";
 
 const DeliveryScreen = () => {
@@ -35,6 +36,45 @@ const DeliveryScreen = () => {
           </RestaurantOrderText>
         </DeliveryArrivalContainer>
       </DeliverySafeAreaView>
+
+      <MapView
+        initialRegion={{
+          latitude: restaurant.lat,
+          longitude: restaurant.long,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
+        }}
+        mapType="mutedStandard"
+        style={{
+          flex: 1,
+          marginTop: -10,
+          zIndex: 0,
+        }}
+      >
+        <Marker
+          key={restaurant.id}
+          coordinate={{
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
+          }}
+          title={restaurant.title}
+          description={restaurant.short_description}
+          identifier="origin"
+          pinColor="#d21155"
+        />
+      </MapView>
+      <DeliveryBottomContainer>
+        <UserImage
+          source={{
+            uri: "https://github.com/Ceci007/image-repository/blob/master/img/team-2.jpg?raw=true",
+          }}
+        />
+        <RiderContainer>
+          <RiderName>Ariel Lee</RiderName>
+          <RiderText>Your rider</RiderText>
+        </RiderContainer>
+        <CallText>Call</CallText>
+      </DeliveryBottomContainer>
     </DeliveryScreenContainer>
   );
 };
@@ -101,4 +141,39 @@ const DeliveryArrivalTop = styled.View`
 const RestaurantOrderText = styled.Text`
   margin-top: 15px;
   color: gray;
+`;
+
+const DeliveryBottomContainer = styled.View`
+  background: #fff;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 30px;
+`;
+
+const UserImage = styled.Image`
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  object-fit: cover;
+`;
+
+const RiderContainer = styled.View`
+  margin-left: 10px;
+  flex: 1;
+`;
+
+const RiderText = styled.Text`
+  color: gray;
+`;
+
+const RiderName = styled.Text`
+  font-size: 18px;
+  font-weight: 700;
+`;
+
+const CallText = styled.Text`
+  color: #00ccbb;
+  font-size: 16px;
+  font-weight: 700;
 `;
