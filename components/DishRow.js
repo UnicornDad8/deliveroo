@@ -9,12 +9,15 @@ import {
   selectBasketItemsWithId,
 } from "../features/basketSlice";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
+import { memoize } from "proxy-memoize";
 import styled from "styled-components/native";
 
 function DishRow({ id, name, description, price, image }) {
   const [isPressed, setIsPressed] = useState(false);
   const dispatch = useDispatch();
-  const items = useSelector((state) => selectBasketItemsWithId(state, id));
+  const items = useSelector(
+    memoize((state) => selectBasketItemsWithId(state, id))
+  );
 
   const addItemToBasket = () => {
     dispatch(

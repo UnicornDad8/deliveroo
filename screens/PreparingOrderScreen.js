@@ -9,7 +9,7 @@ const PreparingOrderScreen = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Basket");
+      navigation.navigate("Delivery");
     }, 4000);
   }, []);
 
@@ -31,6 +31,7 @@ const PreparingOrderScreen = () => {
           textAlign: "center",
           fontWeight: 700,
           color: "#000",
+          marginBottom: 30,
         }}
       >
         Waiting for restaurant to accept your order!
@@ -39,7 +40,7 @@ const PreparingOrderScreen = () => {
         size={30}
         indeterminate={true}
         color="#00CCBB"
-        borderWidth={4}
+        borderWidth={2}
       />
     </PreparingOrderContainer>
   );
