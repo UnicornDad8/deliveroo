@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
-import { selectBasketItems, removeFromBasket } from "../features/basketSlice";
+import {
+  selectBasketItems,
+  removeFromBasket,
+  selectBasketTotal,
+} from "../features/basketSlice";
 import Currency from "react-currency-formatter";
 import { useNavigation } from "@react-navigation/native";
 import { XMarkIcon } from "react-native-heroicons/solid";
@@ -14,6 +18,7 @@ const BasketScreen = () => {
   const restaurant = useSelector(selectRestaurant);
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const items = useSelector(selectBasketItems);
+  const basketTotal = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -70,6 +75,33 @@ const BasketScreen = () => {
             </FoodItem>
           ))}
         </ScrollView>
+
+        <SubtotalSection>
+          <SubtotalContainer>
+            <Subtotal>Subtotal</Subtotal>
+            <CurrencyContainer>
+              <Currency quantity={basketTotal} currency="GBP" />
+            </CurrencyContainer>
+          </SubtotalContainer>
+
+          <SubtotalContainer>
+            <Subtotal>Delivery Free</Subtotal>
+            <CurrencyContainer>
+              <Currency quantity={5.99} currency="GBP" />
+            </CurrencyContainer>
+          </SubtotalContainer>
+
+          <SubtotalContainer>
+            <Text>OrderTotal</Text>
+            <CurrencyContainerBold>
+              <Currency quantity={basketTotal + 5.99} currency="GBP" />
+            </CurrencyContainerBold>
+          </SubtotalContainer>
+
+          <OrderButton>
+            <OrderText>Place Order</OrderText>
+          </OrderButton>
+        </SubtotalSection>
       </BasketWrapper>
     </BasketScreenContainer>
   );
@@ -177,4 +209,44 @@ const RemoveText = styled.Text`
   color: #00ccbb;
   font-size: 14px;
   margin-left: 10px;
+`;
+
+const SubtotalSection = styled.View`
+  padding: 25px;
+  background: #fff;
+  margin-top: 25px;
+`;
+
+const SubtotalContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+
+const Subtotal = styled.Text`
+  color: gray;
+  opacity: 0.6;
+`;
+
+const CurrencyContainer = styled.Text`
+  color: gray;
+  opacity: 0.6;
+`;
+
+const CurrencyContainerBold = styled.Text`
+  color: #000;
+  font-weight: 700;
+`;
+
+const OrderButton = styled.TouchableOpacity`
+  background: #00ccbb;
+  padding: 20px;
+  border-radius: 8px;
+`;
+
+const OrderText = styled.Text`
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
 `;
