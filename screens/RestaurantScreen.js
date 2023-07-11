@@ -88,9 +88,8 @@ const RestaurantScreen = () => {
           <Description>{short_description}</Description>
           <DescriptionButton
             style={{
-              borderBottomColor: "#dcdad7",
+              borderColor: "#dcdad7",
               borderBottomWidth: 1,
-              borderTopColor: "#dcdad7",
               borderTopWidth: 1,
             }}
           >
