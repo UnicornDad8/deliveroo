@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RestaurantCard from "./RestaurantCard";
-import styled from "styled-components/native";
 import sanityClient from "../sanity";
+import styled from "styled-components/native";
 
 export default function FeaturedRow({ id, title, description }) {
   const [restaurants, setRestaurants] = useState([]);

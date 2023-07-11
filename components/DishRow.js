@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import Currency from "react-currency-formatter";
@@ -41,9 +41,8 @@ function DishRow({ id, name, description, price, image }) {
           isPressed
             ? { borderBottomWidth: 0 }
             : {
-                borderBottomColor: "#dcdad7",
                 borderBottomWidth: 1,
-                borderTopColor: "#dcdad7",
+                borderColor: "#dcdad7",
                 borderTopWidth: 1,
               }
         }
@@ -88,7 +87,7 @@ function DishRow({ id, name, description, price, image }) {
   );
 }
 
-export default DishRow;
+export default memo(DishRow);
 
 const DishContainer = styled.TouchableOpacity`
   background: #fff;
@@ -131,8 +130,6 @@ const Image = styled.Image`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-width: 1px;
-  border-color: #f3f3f4;
 `;
 
 const DishBottom = styled.View`

@@ -98,7 +98,9 @@ const BasketScreen = () => {
             </CurrencyContainerBold>
           </SubtotalContainer>
 
-          <OrderButton>
+          <OrderButton
+            onPress={() => navigation.navigate("PreparingOrderScreen")}
+          >
             <OrderText>Place Order</OrderText>
           </OrderButton>
         </SubtotalSection>
