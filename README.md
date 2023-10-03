@@ -1,4 +1,4 @@
-## 🧐 Game-Hub
+## 🧐 Deliveroo
 
 > This is a mobile app made with React Native (expo) and Styled Components, which consumes data from the sanity CMS and it has maps integrated.
 
