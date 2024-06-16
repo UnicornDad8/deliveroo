@@ -66,7 +66,7 @@ const RestaurantScreen = () => {
             <Image source={{ uri: urlFor(imgUrl).url() }} />
           </ImageContainer>
           <BackButton onPress={navigation.goBack}>
-            <ArrowLeftIcon size={20} color="#00CCBB" />
+            <ArrowLeftIcon size={20} color="#333" />
           </BackButton>
         </View>
         <RestaurantTextWrapper>
@@ -75,7 +75,7 @@ const RestaurantScreen = () => {
           </TitleContainer>
           <RatingWrapper>
             <RatingRow>
-              <StarIcon size={22} color="#57c955" opacity={0.5} />
+              <StarIcon size={26} color="#4ade80" />
               <Rating>{rating}</Rating>
               <Genre>{genre}</Genre>
             </RatingRow>
@@ -95,7 +95,6 @@ const RestaurantScreen = () => {
           >
             <QuestionMarkCircleIcon color="gray" opacity={0.6} size={22} />
             <DescriptionButtonText>Have a food allergy?</DescriptionButtonText>
-            <ChevronRightIcon size={22} color="#00CCBB" />
           </DescriptionButton>
         </RestaurantTextWrapper>
         <MenuContainer>
@@ -174,10 +173,11 @@ const RatingRow = styled.View`
 `;
 
 const Rating = styled.Text`
-  color: #57c955;
-  opacity: 0.5;
+  color: #4ade80;
+  margin-left: 3px;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: 700;
 `;
 
 const Genre = styled.Text`

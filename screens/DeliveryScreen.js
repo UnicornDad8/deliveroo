@@ -6,6 +6,7 @@ import { selectRestaurant } from "../features/restaurantSlice";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
 import MapView, { Marker } from "react-native-maps";
+import colors from "../colors";
 import styled from "styled-components/native";
 
 const DeliveryScreen = () => {
@@ -30,7 +31,11 @@ const DeliveryScreen = () => {
             </View>
             <BikeImage source={{ uri: "https://links.papareact.com/fls" }} />
           </DeliveryArrivalTop>
-          <Progress.Bar size={30} color="#00CCBB" indeterminate={true} />
+          <Progress.Bar
+            size={30}
+            color={colors.colorPrimary}
+            indeterminate={true}
+          />
           <RestaurantOrderText>
             Your order at {restaurant.title} is being prepared
           </RestaurantOrderText>
@@ -47,7 +52,7 @@ const DeliveryScreen = () => {
         mapType="mutedStandard"
         style={{
           flex: 1,
-          marginTop: -10,
+          marginTop: -80,
           zIndex: 0,
         }}
       >
@@ -83,7 +88,7 @@ export default DeliveryScreen;
 
 const DeliveryScreenContainer = styled.View`
   flex: 1;
-  background: #00ccbb;
+  background: ${colors.colorPrimary};
 `;
 
 const DeliverySafeAreaView = styled.SafeAreaView`
@@ -173,7 +178,7 @@ const RiderName = styled.Text`
 `;
 
 const CallText = styled.Text`
-  color: #00ccbb;
+  color: ${colors.colorPrimary};
   font-size: 16px;
   font-weight: 700;
 `;

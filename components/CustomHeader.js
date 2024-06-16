@@ -41,21 +41,28 @@ export default function CustomHeader() {
               <Text>Deliver now!</Text>
               <LocationContainer>
                 <Location>Current Location</Location>
-                <ChevronDownIcon size={20} color="#00CCBB" />
+                <ChevronDownIcon
+                  style={{ marginTop: 5 }}
+                  size={20}
+                  color="#000"
+                />
               </LocationContainer>
             </View>
           </ProfileContainer>
-          <UserIcon size={35} color="#00CCBB" />
         </Header>
         <SearchBarContainer>
           <InputContainer>
-            <MagnifyingGlassIcon size={20} color="gray" />
+            <MagnifyingGlassIcon
+              style={{ marginLeft: 5, marginRight: 10 }}
+              size={20}
+              color="gray"
+            />
             <TextInput
               placeholder="Restaurants and cousine"
               keyboardType="default"
             />
           </InputContainer>
-          <AdjustmentsVerticalIcon size={26} color="#00CCBB" />
+          <AdjustmentsVerticalIcon size={26} color="#c0bdbe" />
         </SearchBarContainer>
       </HeaderWrapper>
     </>

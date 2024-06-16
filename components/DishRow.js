@@ -10,6 +10,7 @@ import {
 } from "../features/basketSlice";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
 import { memoize } from "proxy-memoize";
+import colors from "../colors";
 import styled from "styled-components/native";
 
 function DishRow({ id, name, description, price, image }) {
@@ -69,16 +70,22 @@ function DishRow({ id, name, description, price, image }) {
         <DishBottom>
           <QuantityContainer>
             <IconsBox>
-              <TouchableOpacity onPress={removeItemFromBasket}>
+              <TouchableOpacity
+                style={{ elevation: 2 }}
+                onPress={removeItemFromBasket}
+              >
                 <MinusCircleIcon
-                  color={items.length > 0 ? "#00CCBB" : "#dcdad7"}
+                  color={items.length > 0 ? colors.colorPrimary : "#dcdad7"}
                   size={40}
                 />
               </TouchableOpacity>
               <Quantity>{items.length}</Quantity>
-              <TouchableOpacity onPress={addItemToBasket}>
+              <TouchableOpacity
+                style={{ elevation: 2 }}
+                onPress={addItemToBasket}
+              >
                 <PlusCircleIcon
-                  color={items.length > 0 ? "#00CCBB" : "#dcdad7"}
+                  color={items.length > 0 ? colors.colorPrimary : "#dcdad7"}
                   size={40}
                 />
               </TouchableOpacity>
@@ -99,6 +106,10 @@ const DishContainer = styled.TouchableOpacity`
 const DishTop = styled.View`
   flex-direction: row;
   align-items: center;
+`;
+
+const CountButton = styled.TouchableOpacity`
+  box-shadow: 0 0 20px #000;
 `;
 
 const Name = styled.Text`

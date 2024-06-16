@@ -11,6 +11,7 @@ import Currency from "react-currency-formatter";
 import { useNavigation } from "@react-navigation/native";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../sanity";
+import colors from "../colors";
 import styled from "styled-components/native";
 
 const BasketScreen = () => {
@@ -128,6 +129,18 @@ const BasketName = styled.Text`
   margin-top: 25px;
 `;
 
+const BackButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: ${colors.colorPrimary};
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+`;
+
 const RestaurantTitle = styled.Text`
   color: #c0bdbe;
   text-align: center;
@@ -140,18 +153,6 @@ const ModalHeader = styled.View`
   border-bottom-color: #dcdad7;
   background: #fff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-`;
-
-const BackButton = styled.TouchableOpacity`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-  background: #00ccbb;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
 `;
 
 const DeliverContainer = styled.View`
@@ -174,7 +175,7 @@ const DeliverTime = styled.Text`
 `;
 
 const ChangeText = styled.Text`
-  color: #00ccbb;
+  color: ${colors.colorPrimary};
 `;
 
 const FoodItem = styled.View`
@@ -187,7 +188,7 @@ const FoodItem = styled.View`
 `;
 
 const Count = styled.Text`
-  color: #00ccbb;
+  color: #000;
 `;
 
 const FoodImage = styled.Image`
@@ -208,7 +209,7 @@ const Price = styled.Text`
 `;
 
 const RemoveText = styled.Text`
-  color: #00ccbb;
+  color: ${colors.colorPrimary};
   font-size: 14px;
   margin-left: 10px;
 `;
@@ -241,9 +242,10 @@ const CurrencyContainerBold = styled.Text`
 `;
 
 const OrderButton = styled.TouchableOpacity`
-  background: #00ccbb;
+  background: ${colors.colorPrimary};
   padding: 20px;
   border-radius: 8px;
+  margin: 10px 0;
 `;
 
 const OrderText = styled.Text`

@@ -35,7 +35,7 @@ export default function FeaturedRow({ id, title, description }) {
       <View>
         <FeaturedHeader>
           <Title>{title}</Title>
-          <ArrowRightIcon size={22} color="#00CCBB" />
+          <ArrowRightIcon size={22} color="#333" />
         </FeaturedHeader>
         <Description>{description}</Description>
       </View>
@@ -75,14 +75,14 @@ const FeaturedHeader = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 20px;
 `;
 
 const Description = styled.Text`
   font-size: 16px;
   color: gray;
   padding: 0 20px;
-  margin-top: -15px;
+  padding-bottom: 10px;
 `;
 
 const FeaturedCardContainer = styled.ScrollView`

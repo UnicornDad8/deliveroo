@@ -41,7 +41,7 @@ export default function RestaurantCard({
       <Wrapper>
         <Title>{title}</Title>
         <RatingContainer>
-          <StarIcon size={22} color="#57c955" opacity={0.5} />
+          <StarIcon size={24} color="#4ade80" />
           <RatingRow>
             <Rating>{rating}</Rating>
             <Genre>{genre}</Genre>
@@ -67,6 +67,7 @@ const RestaurantCardContainer = styled.TouchableOpacity`
 
 const Wrapper = styled.View`
   padding: 10px;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.View`
@@ -82,7 +83,8 @@ const Image = styled.Image`
 
 const Title = styled.Text`
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
+  padding-bottom: 10px;
 `;
 
 const RatingContainer = styled.View`
@@ -93,13 +95,15 @@ const RatingContainer = styled.View`
 const RatingRow = styled.View`
   flex-direction: row;
   align-items: center;
+  margin: 7px 0;
 `;
 
 const Rating = styled.Text`
-  color: #57c955;
-  opacity: 0.5;
+  color: #4ade80;
+  margin-left: 3px;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 700;
 `;
 
 const Genre = styled.Text`

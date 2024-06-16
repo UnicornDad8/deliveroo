@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
+import colors from "../colors";
 import styled from "styled-components/native";
 
 const PreparingOrderScreen = () => {
@@ -19,7 +20,7 @@ const PreparingOrderScreen = () => {
         source={require("../assets/orderLoading.gif")}
         animation="slideInUp"
         iterationCount={1}
-        style={{ width: 350, height: 350 }}
+        style={{ width: 400, height: 400 }}
       />
       <Animatable.Text
         animation="slideInUp"
@@ -39,8 +40,8 @@ const PreparingOrderScreen = () => {
       <Progress.Circle
         size={30}
         indeterminate={true}
-        color="#00CCBB"
-        borderWidth={2}
+        color={colors.colorPrimary}
+        borderWidth={4}
       />
     </PreparingOrderContainer>
   );
